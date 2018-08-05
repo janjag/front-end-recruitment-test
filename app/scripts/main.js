@@ -74,4 +74,23 @@
   }
 
   // Your custom JavaScript goes here
+
+  const EVNAME_CLICK = 'click';
+  const EL_BUTTON = '#overview button';
+  const EL_BECONIMG = 'img[alt="Bacon"]';
+  /**
+   * @param  {string} el Tag, class, id or other string defining html node
+   * @return  {node} Return sought node
+   */
+  function selectElem(el) {
+    return document.querySelector(el);
+  }
+
+  selectElem(EL_BUTTON).addEventListener(EVNAME_CLICK, function() {
+    const el = selectElem(EL_BECONIMG);
+    const newEl = el.cloneNode();
+    const wrapper = el.parentNode;
+
+    wrapper.appendChild(newEl);
+  });
 })();
